@@ -18,18 +18,27 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Rectangle Grid.Row="0"  x:Name="rect" Height="20" Width="20" RadiusX="4" RadiusY="4" Stroke="Black" HorizontalAlignment="Left"/>
-                            <Ellipse Grid.Row="0" x:Name="circle" Height="8" Width="8" Fill="Black" HorizontalAlignment="Left" Opacity="0">
+                            <Rectangle Grid.Row="0"  x:Name="rect" Height="20" Width="20" RadiusX="4" RadiusY="4" Stroke="Black" HorizontalAlignment="Center"/>
+                            <Ellipse Grid.Row="0" x:Name="circle" Height="8" Width="8" Fill="Black" HorizontalAlignment="Center" Opacity="0">
                                 <Ellipse.RenderTransform>
-                                    <TranslateTransform X="6"/>
+                                    <TranslateTransform X="0"/>
                                 </Ellipse.RenderTransform>
                             </Ellipse>
-                            <Path Grid.Row="0" x:Name="check" Stroke="Black" HorizontalAlignment="Left" Opacity="0">
+                            <Path Grid.Row="0" x:Name="check" Stroke="Black" HorizontalAlignment="Center" Opacity="0">
                                 <Path.Data>
                                     <GeometryGroup>
-                                        <LineGeometry StartPoint="3 3" EndPoint="17 17"/>
-                                        <LineGeometry StartPoint="3 17" EndPoint="17 3"/>
+                                        <LineGeometry StartPoint="2 2" EndPoint="18 18">
+                                            <LineGeometry.Transform>
+                                                <TranslateTransform X="-1"/>
+                                            </LineGeometry.Transform>
+                                        </LineGeometry>
+                                        <LineGeometry StartPoint="2 18" EndPoint="18 2">
+                                            <LineGeometry.Transform>
+                                                <TranslateTransform X="-1"/>
+                                            </LineGeometry.Transform>
+                                        </LineGeometry>
                                     </GeometryGroup>
+                                    
                                 </Path.Data>
                             </Path>
                             <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}"/>
@@ -48,8 +57,8 @@
         </Style>
     </Window.Resources>
     <UniformGrid Columns="3">
-        <CheckBox IsChecked="False" HorizontalAlignment="Center" Content="Checked" />
-        <CheckBox IsChecked="true"  HorizontalAlignment="Center" Content="Unchecked"/>
-        <CheckBox IsChecked="{x:Null}" HorizontalAlignment="Center" Content="Indeterminate"/>
+        <CheckBox IsChecked="False" Content="UnChecked" HorizontalAlignment="Center"/>
+        <CheckBox IsChecked="true"  Content="Checked" HorizontalAlignment="Center"/>
+        <CheckBox IsChecked="{x:Null}" Content="Indeterminate" HorizontalAlignment="Center"/>
     </UniformGrid>
 </Window>
